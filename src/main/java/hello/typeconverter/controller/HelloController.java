@@ -23,6 +23,7 @@ public class HelloController {
         return "ok";
     }
 
+
     @GetMapping("/ip-port")
     public String ipPort(@RequestParam IpPort ipPort) {
         System.out.println("ipPort IP = " + ipPort.getIp());
