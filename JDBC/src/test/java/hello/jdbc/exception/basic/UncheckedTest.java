@@ -1,5 +1,6 @@
 package hello.jdbc.exception.basic;
 
+import hello.jdbc.exception.basic.CheckedAppTest.Controller;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,16 @@ public class UncheckedTest {
         Service service = new Service();
         assertThatThrownBy(() -> service.callThrow())
                 .isInstanceOf(MyUncheckedException.class);
+    }
+
+    @Test
+    void printEx() {
+        Controller controller = new Controller();
+        try {
+            controller.request();
+        } catch (Exception e) {
+            log.info("ex", e);
+        }
     }
     /**
      * RuntimeException을 상속받은 예외는 언체크 예외가 됨
